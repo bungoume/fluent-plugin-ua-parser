@@ -1,4 +1,4 @@
-# Fluent-plugin-ua-parser
+# fluent-plugin-ua-parser
 
 [Fluentd](http://fluentd.org) filter plugin to parse user-agent.
 
@@ -26,23 +26,24 @@ $ sudo td-agent-gem install fluent-plugin-ua-parser
 
 Assuming following inputs are coming:
 
-```
+```json
 access.nginx: {
   "remote_addr":"10.20.30.40",
   "scheme":"http", "method":"GET", "host":"example.com",
   "path":"/", "query":"-", "req_bytes":200, "referer":"-",
-  "user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36",
-  "status":200, "res_bytes":800, "res_body_bytes":600, "taken_time":0.001
+  "status":200, "res_bytes":800, "res_body_bytes":600, "taken_time":0.001,
+  "user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36"
 }
 ```
 
 then output bocomes as belows:
 
-```
+```json
 access.nginx: {
   "remote_addr":"10.20.30.40",
   "scheme":"http", "method":"GET", "host":"example.com",
   "path":"/", "query":"-", "req_bytes":200, "referer":"-",
+  "status":200, "res_bytes":800, "res_body_bytes":600, "taken_time":0.001,
   "user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36",
   "ua":{
     "browser":{
@@ -55,8 +56,7 @@ access.nginx: {
       "version":""
     },
     "device":"Other"
-  },
-  "status":200, "res_bytes":800, "res_body_bytes":600, "taken_time":0.001
+  }
 }
 ```
 
@@ -74,23 +74,24 @@ access.nginx: {
 
 Assuming following inputs are coming:
 
-```
+```json
 access.apache: {
   "remote_addr":"10.20.30.40",
   "scheme":"http", "method":"GET", "host":"example.com",
   "path":"/", "query":"-", "req_bytes":200, "referer":"-",
-  "ua_string":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7",
-  "status":200, "res_bytes":800, "res_body_bytes":600, "taken_time":0.001
+  "status":200, "res_bytes":800, "res_body_bytes":600, "taken_time":0.001,
+  "ua_string":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7"
 }
 ```
 
 then output bocomes as belows:
 
-```
+```json
 access.apache: {
   "remote_addr":"10.20.30.40",
   "scheme":"http", "method":"GET", "host":"example.com",
   "path":"/", "query":"-", "req_bytes":200, "referer":"-",
+  "status":200, "res_bytes":800, "res_body_bytes":600, "taken_time":0.001,
   "ua":{
     "browser":{
       "family":"Safari",
@@ -103,8 +104,7 @@ access.apache: {
       "major_version":10
     },
     "device":"Other"
-  },
-  "status":200, "res_bytes":800, "res_body_bytes":600, "taken_time":0.001
+  }
 }
 ```
 
