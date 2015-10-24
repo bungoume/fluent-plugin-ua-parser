@@ -1,4 +1,8 @@
-# fluent-plugin-ua-parser [![Build Status](https://travis-ci.org/bungoume/fluent-plugin-ua-parser.svg?branch=master)](https://travis-ci.org/bungoume/fluent-plugin-ua-parser)
+# fluent-plugin-ua-parser
+
+[![Gem Version](https://badge.fury.io/rb/fluent-plugin-ua-parser.svg)](https://badge.fury.io/rb/fluent-plugin-ua-parser)
+[![Build Status](https://travis-ci.org/bungoume/fluent-plugin-ua-parser.svg?branch=master)](https://travis-ci.org/bungoume/fluent-plugin-ua-parser)
+[![Dependency Status](https://gemnasium.com/bungoume/fluent-plugin-ua-parser.svg)](https://gemnasium.com/bungoume/fluent-plugin-ua-parser)
 
 [Fluentd](http://fluentd.org) filter plugin to parse user-agent.
 
