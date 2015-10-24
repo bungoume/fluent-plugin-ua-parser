@@ -67,7 +67,7 @@ access.nginx: {
   @type ua_parser
   key_name ua_string
   delete_key yes
-  out_prefix ua
+  out_key ua
   patterns_path /etc/td-agent/data/regexes.yaml
 </filter>
 ```
@@ -119,7 +119,7 @@ access.apache: {
 
     Delete input key. default false.
 
-- out_prefix *string*
+- out_key *string*
 
     Output prefix key name. default ua.
 

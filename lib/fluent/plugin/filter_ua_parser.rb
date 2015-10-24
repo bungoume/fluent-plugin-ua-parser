@@ -12,7 +12,7 @@ module Fluent
 
     config_param :key_name, :string, :default => 'user_agent'
     config_param :delete_key, :bool, :default => false
-    config_param :out_prefix, :string, :default => 'ua'
+    config_param :out_key, :string, :default => 'ua'
     # config_param :flatten, :bool :default => false
     config_param :patterns_path, :string, :default => nil
 
