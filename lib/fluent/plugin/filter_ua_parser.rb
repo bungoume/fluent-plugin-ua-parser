@@ -41,7 +41,7 @@ module Fluent
 
     def get_ua_detail(ua_string)
       ua = @parser.parse(ua_string)
-      data = {"browser"=>{}, "os"=>{}, "device"=>"", "string"=>ua_string}
+      data = {"browser"=>{}, "os"=>{}, "device"=>""}
       return data if ua.nil?
       data['browser']['family'] = ua.family
       data['browser']['version'] = ua.version.to_s
