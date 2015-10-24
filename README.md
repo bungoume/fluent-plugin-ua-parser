@@ -75,7 +75,7 @@ access.nginx: {
 Assuming following inputs are coming:
 
 ```
-access.nginx: {
+access.apache: {
   "remote_addr":"10.20.30.40",
   "scheme":"http", "method":"GET", "host":"example.com",
   "path":"/", "query":"-", "req_bytes":200, "referer":"-",
@@ -87,7 +87,7 @@ access.nginx: {
 then output bocomes as belows:
 
 ```
-access.nginx: {
+access.apache: {
   "remote_addr":"10.20.30.40",
   "scheme":"http", "method":"GET", "host":"example.com",
   "path":"/", "query":"-", "req_bytes":200, "referer":"-",
