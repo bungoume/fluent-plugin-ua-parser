@@ -131,7 +131,7 @@ access.apache: {
 
 ## TODO
 
-* patches welcome!
+* flatten option (join hashed data by '_')
 
 
 ## Contributing
