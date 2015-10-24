@@ -52,5 +52,5 @@ module Fluent
       data['device'] = ua.device.to_s
       data
     end
-  end
+  end if defined?(Filter) # Support only >= v0.12
 end
