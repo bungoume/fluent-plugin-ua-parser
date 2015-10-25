@@ -25,8 +25,6 @@ class UaParserFilterTest < Test::Unit::TestCase
   def test_emit
     d1 = create_driver(CONFIG)
     ua = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36'
-    emit_message = 'error has occoured.'
-    emit_extra = {'foo' => {'array' => [1,2,3]}, 'hash' => {'nest' => 'data'}}
 
     d1.run do
       d1.emit({'user_agent' => ua})
