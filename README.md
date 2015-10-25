@@ -112,6 +112,38 @@ access.apache: {
 }
 ```
 
+### Example 3:
+
+```xml
+<filter access.apache.**>
+  @type ua_parser
+  key_name ua_string
+  flatten
+</filter>
+```
+
+Assuming following inputs are coming:
+
+```json
+access.apache: {
+  "ua_string":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7"
+}
+```
+
+then output bocomes as belows:
+
+```json
+access.apache: {
+  "ua_string":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7",
+  "ua_browser_family":"Safari",
+  "ua_browser_version":"9.0.1",
+  "ua_browser_major_version":9,
+  "ua_os_family":"Mac OS X",
+  "ua_os_version":"10.11.1",
+  "ua_os_major_version":10,
+  "ua_device":"Other"
+}
+```
 
 
 ## Parameters
@@ -132,10 +164,13 @@ access.apache: {
     Patterns file(regexes.yaml) path.
     Get from [uap-core](https://github.com/ua-parser/uap-core)
 
+- flatten *bool*
+    join hashed data by '_'. default false.
+
 
 ## TODO
 
-* flatten option (join hashed data by '_')
+* patches welcome!
 
 
 ## Contributing

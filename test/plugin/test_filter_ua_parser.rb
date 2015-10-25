@@ -41,4 +41,26 @@ class UaParserFilterTest < Test::Unit::TestCase
     assert_equal 'Other', ua_object['device']
   end
 
+  def test_emit_flatten
+    d1 =     d1 = create_driver(%[
+      type ua_parser
+      flatten
+    ], 'test')
+    ua = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36'
+
+    d1.run do
+      d1.emit({'user_agent' => ua})
+    end
+    emits = d1.emits
+    assert_equal 1, emits.length
+    assert_equal 'test', emits[0][0] # tag
+    ua_object = emits[0][2]
+    assert_equal 'Chrome', ua_object['ua_browser_family']
+    assert_equal 46, ua_object['ua_browser_major_version']
+    assert_equal '46.0.2490', ua_object['ua_browser_version']
+    assert_equal 'Windows 7', ua_object['ua_os_family']
+    assert_equal '', ua_object['ua_os_version']
+    assert_equal 'Other', ua_object['ua_device']
+  end
+
 end
