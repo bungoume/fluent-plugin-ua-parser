@@ -134,7 +134,7 @@ then output bocomes as belows:
 
 ```json
 access.apache: {
-  "ua_string":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7"
+  "ua_string":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7",
   "ua_browser_family":"Safari",
   "ua_browser_version":"9.0.1",
   "ua_browser_major_version":9,
