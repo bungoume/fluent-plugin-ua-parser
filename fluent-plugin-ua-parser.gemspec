@@ -23,6 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
   if defined?(RUBY_VERSION) && RUBY_VERSION > '2.2'
-    spec.add_development_dependency "test-unit", '~> 3'
+    spec.add_development_dependency "test-unit"
   end
 end
