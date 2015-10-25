@@ -13,7 +13,7 @@ module Fluent
     config_param :key_name, :string, :default => 'user_agent'
     config_param :delete_key, :bool, :default => false
     config_param :out_key, :string, :default => 'ua'
-    # config_param :flatten, :bool :default => false
+    config_param :flatten, :bool, :default => false
     config_param :patterns_path, :string, :default => nil
 
     def configure(conf)
@@ -32,7 +32,11 @@ module Fluent
       record.delete(@key_name) if @delete_key
       unless ua_string.nil?
         user_agent_detail = @ua_cache.getset(ua_string) { get_ua_detail(ua_string) }
-        record[@out_key] = user_agent_detail
+        if flatten
+          record.merge! hash_flatten(user_agent_detail, [@out_key])
+        else
+          record[@out_key] = user_agent_detail
+        end
       end
       record
     end
@@ -52,5 +56,19 @@ module Fluent
       data['device'] = ua.device.to_s
       data
     end
+
+    def hash_flatten(a, keys=[])
+      ret = {}
+      a.each{|k,v|
+        ks = keys + [k]
+        if v.class == Hash
+          ret.merge!(hash_flatten(v, ks))
+        else
+          ret.merge!({ks.join('_')=> v})
+        end
+      }
+      ret
+    end
+
   end if defined?(Filter) # Support only >= v0.12
 end
