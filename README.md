@@ -187,6 +187,10 @@ access.apache: {
 Copyright (c) 2015 Yuri Umezaki
 
 
+## Thanks to
+This plugin use [ua-parser](https://github.com/ua-parser/uap-core) to do user agent detection.
+
+
 ## License
 
 Apache License, Version 2.0
