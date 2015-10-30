@@ -167,6 +167,11 @@ access.apache: {
 - flatten *bool*
     join hashed data by '_'. default false.
 
+## Related Projects
+
+* [fluent-plugin-woothee](https://github.com/tagomoris/fluent-plugin-woothee)
+  * Fluentd plugin to parse UserAgent (very similar). It is use [woothee](https://github.com/woothee/woothee) parser.
+
 
 ## TODO
 
