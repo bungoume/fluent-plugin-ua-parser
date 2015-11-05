@@ -167,6 +167,11 @@ access.apache: {
 - flatten *bool*
     join hashed data by '_'. default false.
 
+## Related Projects
+
+* [fluent-plugin-woothee](https://github.com/tagomoris/fluent-plugin-woothee)
+  * Fluentd plugin to parse UserAgent (very similar). It is use [woothee](https://github.com/woothee/woothee) parser.
+
 
 ## TODO
 
@@ -193,4 +198,4 @@ This plugin use [ua-parser](https://github.com/ua-parser/uap-core) to do user ag
 
 ## License
 
-Apache License, Version 2.0
+[Apache License, Version 2.0.](http://www.apache.org/licenses/LICENSE-2.0)
