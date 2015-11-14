@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/bungoume/fluent-plugin-ua-parser"
   spec.summary       = "Fluentd filter plugin to parse user-agent"
   spec.description   = spec.summary
-  spec.license       = "APLv2"
+  spec.license       = "Apache-2.0"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
