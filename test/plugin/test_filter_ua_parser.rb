@@ -6,14 +6,14 @@ class UaParserFilterTest < Test::Unit::TestCase
   end
 
   CONFIG = %[
-    type ua_parser
+    @type ua_parser
     key_name user_agent
     delete_key no
     out_key ua
   ]
 
-  def create_driver(conf=CONFIG,tag='test')
-    Fluent::Test::FilterTestDriver.new(Fluent::UaParserFilter, tag).configure(conf)
+  def create_driver(conf=CONFIG, tag='test', use_v1=true)
+    Fluent::Test::FilterTestDriver.new(Fluent::UaParserFilter, tag).configure(conf, use_v1)
   end
 
   def test_configure
@@ -43,7 +43,7 @@ class UaParserFilterTest < Test::Unit::TestCase
 
   def test_emit_flatten
     d1 =     d1 = create_driver(%[
-      type ua_parser
+      @type ua_parser
       flatten
     ], 'test')
     ua = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36'
