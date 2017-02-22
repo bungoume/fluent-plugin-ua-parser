@@ -70,5 +70,5 @@ module Fluent
       ret
     end
 
-  end if defined?(Filter) # Support only >= v0.12
+  end
 end
