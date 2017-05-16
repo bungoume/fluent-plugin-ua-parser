@@ -10,9 +10,9 @@ config = %[
   flatten
   out_key ua
 ]
-time = Time.now.to_i
+
 tag = 'foo.bar'
-driver = Fluent::Test::FilterTestDriver.new(Fluent::UaParserFilter, tag).configure(config, true)
+driver = Fluent::Test::Driver::Filter.new(Fluent::Plugin::UaParserFilter).configure(config)
 
 # bench
 require 'benchmark'
@@ -23,7 +23,7 @@ ua_list = CSV.read('bench_ua_list.csv')
 ua_list_len = ua_list.length
 
 Benchmark.bm(7) do |x|
-  x.report { driver.run { n.times { driver.emit({'user_agent' => ua_list[rand(ua_list_len)][0]}, time) } } }
+  x.report { driver.run(default_tag: tag) { n.times { driver.feed({'user_agent' => ua_list[rand(ua_list_len)][0]}) } } }
 end
 
 
