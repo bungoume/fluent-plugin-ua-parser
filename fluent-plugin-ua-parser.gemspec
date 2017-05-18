@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-ua-parser"
-  spec.version       = "1.1.0"
+  spec.version       = "1.1.1"
   spec.authors       = ["Yuri Umezaki"]
   spec.email         = ["bungoume@gmail.com"]
   spec.homepage      = "https://github.com/bungoume/fluent-plugin-ua-parser"
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "fluentd", [">= 0.12", "< 2"]
+  spec.add_runtime_dependency "fluentd", [">= 0.12", "< 0.14.0"]
   spec.add_runtime_dependency "user_agent_parser", ">= 2.2.0"
   spec.add_runtime_dependency "lru_redux", ">= 1.0.0"
   spec.add_development_dependency "bundler"
