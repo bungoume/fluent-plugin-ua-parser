@@ -10,11 +10,11 @@ module Fluent
       super
     end
 
-    config_param :key_name, :string, :default => 'user_agent'
-    config_param :delete_key, :bool, :default => false
-    config_param :out_key, :string, :default => 'ua'
-    config_param :flatten, :bool, :default => false
-    config_param :patterns_path, :string, :default => nil
+    config_param :key_name, :string, default: 'user_agent'
+    config_param :delete_key, :bool, default: false
+    config_param :out_key, :string, default: 'ua'
+    config_param :flatten, :bool, default: false
+    config_param :patterns_path, :string, default: nil
 
     def configure(conf)
       super
@@ -22,7 +22,7 @@ module Fluent
         @parser = UserAgentParser::Parser.new(patterns_path: @patterns_path)
       rescue => e
         @parser = UserAgentParser::Parser.new
-        log.warn "Failed to configure parser. Use default pattern.", :error_class => e.class, :error => e.message
+        log.warn "Failed to configure parser. Use default pattern.", error_class: e.class, error: e.message
         log.warn_backtrace
       end
     end
