@@ -1,9 +1,10 @@
+require 'fluent/plugin/filter'
 require 'user_agent_parser'
 require 'lru_redux'
 
-module Fluent
-  class UaParserFilter < Filter
-    Plugin.register_filter('ua_parser', self)
+module Fluent::Plugin
+  class UaParserFilter < Fluent::Plugin::Filter
+    Fluent::Plugin.register_filter('ua_parser', self)
 
     def initialize
       @ua_cache = LruRedux::Cache.new(4096)
