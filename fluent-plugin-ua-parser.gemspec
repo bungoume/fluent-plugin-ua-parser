@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-ua-parser"
-  spec.version       = "1.1.0"
+  spec.version       = "1.2.0"
   spec.authors       = ["Yuri Umezaki"]
   spec.email         = ["bungoume@gmail.com"]
   spec.homepage      = "https://github.com/bungoume/fluent-plugin-ua-parser"
