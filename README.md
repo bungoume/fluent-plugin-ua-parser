@@ -6,6 +6,13 @@
 
 [Fluentd](http://fluentd.org) filter plugin to parse user-agent.
 
+## Requirements
+
+| fluent-plugin-ua-parser | fluentd    | ruby   |
+|-------------------------|------------|--------|
+| >= 1.2.0                | >= v0.14.0 | >= 2.1 |
+| < 1.2.0                 | >= v0.12.0 | >= 1.9 |
+
 
 ## Installation
 
