@@ -1,5 +1,6 @@
 require 'fluent/plugin/filter'
 require 'user_agent_parser'
+require 'device_detector'
 require 'lru_redux'
 
 module Fluent::Plugin
@@ -46,6 +47,7 @@ module Fluent::Plugin
 
     def get_ua_detail(ua_string)
       ua = @parser.parse(ua_string)
+      dd = DeviceDetector.new(ua_string)
       data = {"browser"=>{}, "os"=>{}, "device"=>""}
       return data if ua.nil?
       data['browser']['family'] = ua.family
@@ -55,6 +57,7 @@ module Fluent::Plugin
       data['os']['version'] = ua.os.version.to_s
       data['os']['major_version'] = ua.os.version.major.to_i unless ua.os.version.nil?
       data['device'] = ua.device.to_s
+      data['device_type'] = dd.device_type
       data
     end
 
