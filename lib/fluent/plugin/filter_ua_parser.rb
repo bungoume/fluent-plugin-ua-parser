@@ -7,7 +7,7 @@ module Fluent::Plugin
     Fluent::Plugin.register_filter('ua_parser', self)
 
     def initialize
-      @ua_cache = LruRedux::Cache.new(512)
+      @ua_cache = LruRedux::Cache.new(4096)
       super
     end
 
