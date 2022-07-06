@@ -49,10 +49,10 @@ module Fluent::Plugin
       data = {"browser"=>{}, "os"=>{}, "device"=>""}
       return data if ua.nil?
       data['browser']['family'] = ua.family
-      data['browser']['version'] = ua.version.to_s
+      data['browser']['version'] = ua.version.to_s.gsub(/(\d*\.\d*.\d*)(\.\d*)/,'\1')
       data['browser']['major_version'] = ua.version.major.to_i unless ua.version.nil?
-      data['os']['family'] = ua.os.family
-      data['os']['version'] = ua.os.version.to_s
+      data['os']['family'] = ua.os.family.to_s
+      data['os']['version'] = ua.os.version.to_s.gsub(/(\d*\.\d*.\d*)(\.\d*)/,'\1')
       data['os']['major_version'] = ua.os.version.major.to_i unless ua.os.version.nil?
       data['device'] = ua.device.to_s
       data
