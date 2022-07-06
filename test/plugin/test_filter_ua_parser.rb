@@ -35,8 +35,8 @@ class UaParserFilterTest < Test::Unit::TestCase
     assert_equal 'Chrome', ua_object['browser']['family']
     assert_equal 46, ua_object['browser']['major_version']
     assert_equal '46.0.2490', ua_object['browser']['version']
-    assert_equal 'Windows 7', ua_object['os']['family']
-    assert_equal '', ua_object['os']['version']
+    assert_equal 'Windows', ua_object['os']['family']
+    assert_equal '7', ua_object['os']['version']
     assert_equal 'Other', ua_object['device']
   end
 
@@ -56,8 +56,8 @@ class UaParserFilterTest < Test::Unit::TestCase
     assert_equal 'Chrome', ua_object['ua_browser_family']
     assert_equal 46, ua_object['ua_browser_major_version']
     assert_equal '46.0.2490', ua_object['ua_browser_version']
-    assert_equal 'Windows 7', ua_object['ua_os_family']
-    assert_equal '', ua_object['ua_os_version']
+    assert_equal 'Windows', ua_object['ua_os_family']
+    assert_equal '7', ua_object['ua_os_version']
     assert_equal 'Other', ua_object['ua_device']
   end
 

@@ -17,9 +17,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "fluentd", [">= 0.14", "< 2"]
-  spec.add_runtime_dependency "user_agent_parser", ">= 2.2.0"
-  spec.add_runtime_dependency "lru_redux", ">= 1.0.0"
+  spec.add_runtime_dependency "fluentd", ["~> 1"]
+  spec.add_runtime_dependency "user_agent_parser", "~> 2.2"
+  spec.add_runtime_dependency "lru_redux", "~> 1.0"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "test-unit"
